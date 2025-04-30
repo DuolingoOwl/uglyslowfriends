@@ -77,13 +77,19 @@
 				scorePerSecond = cursors;
 				document.getElementById("scorePerSecond").innerHTML = scorePerSecond;
 			}
+			var counter = 10;
+			var interval = function() {
+			    counter /= (score + 1);
+			    setTimeout(myFunction, counter);
+			}
+			setTimeout(myFunction, counter);
 
-			setInterval(function() {
-				score += 1;
-				document.getElementById("score").innerHTML = score;
+			//setInterval(function() {
+			//	score += 1;
+			//	document.getElementById("score").innerHTML = score;
 
-				document.title = score + " friends";
-			}, 1000/(cursors + 1));
+			//	document.title = score + " friends";
+			//}, 1000/(cursors + 1));
 		</script>
 	</body>
 </html>
