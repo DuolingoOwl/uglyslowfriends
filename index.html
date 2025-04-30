@@ -53,6 +53,8 @@
 
 			var cursorCost = 15;
 			var cursors = 1;
+			var interval = 1000;
+			let run = setInterval(request, interval); // start setInterval as "run"
 
 			function buyCursor(argument) {
 				if (score >= cursorCost) {
@@ -63,6 +65,8 @@
 					document.getElementById("score").innerHTML = score;
 					document.getElementById("cursorCost").innerHTML = cursorCost;
 					document.getElementById("cursors").innerHTML = cursors;
+					
+					interval /= (cursors+1);
 
 					updateScorePerSecond();
 				}
@@ -77,14 +81,11 @@
 				scorePerSecond = cursors;
 				document.getElementById("scorePerSecond").innerHTML = scorePerSecond;
 			}
-			var interval = 1000;
-			let run = setInterval(request, interval); // start setInterval as "run"
 			
 			function request() {
 				console.log(interval);
 				clearInterval(run); // stop the setInterval()
 				score += 1;
-				interval /= (cursors+1);
 				document.getElementById("score").innerHTML = score;
 				document.title = score + " friends";
 			    	run = setInterval(request, interval); // start the setInterval()
