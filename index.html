@@ -74,6 +74,11 @@
 			}
 			var interval = 1000;
 			var run = setInterval(request, interval); // start setInterval as "run"
+
+			function addToScore(amount) {
+				score += amount;
+				document.getElementById("scorePerSecond").innerHTML = scorePerSecond;
+			}
 			
 			function request() {
 				console.log(interval);
