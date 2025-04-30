@@ -80,9 +80,9 @@
 			var counter = 10;
 			var interval = function() {
 			    counter /= (score + 1);
-			    setTimeout(myFunction, counter);
+			    setTimeout(interval, counter);
 			}
-			setTimeout(myFunction, counter);
+			setTimeout(interval, counter);
 
 			//setInterval(function() {
 			//	score += 1;
