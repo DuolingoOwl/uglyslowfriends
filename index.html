@@ -1,9 +1,65 @@
 <!DOCTYPE html>
 <html>
-<title>We're Killing You</title>
-<body>
+	<head>
+		<title>We're Killing You</title>
 
-<h1>YOU BELONG ON UGLYSLOWFRIENDS.COM</h1>
+		<style type="text/css">
+			.sectionLeft {
+				float: left;
+			}
+			.sectionRight {
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
 
-</body>
+		<h1>YOU BELONG ON UGLYSLOWFRIENDS.COM</h1>
+		<div class="sectionLeft">
+			<p>Your ugly and slow friend's score: <span id = "score">0</span></p>
+			<p><span id = "scorePerSecond">0</span> ugly and slow friends per second</p>
+
+			<img src="images/uglyslowfriend.png" onclick="addToScore(1)">
+		</div>
+
+
+			<button onclick="buyCursor()">Cursor [<span id = "cursorCost">15</span>] -- <span id = "cursors">0</span></button>
+		<script type="text/javascript">
+			var score = 0;
+
+			var cursorCost = 15;
+			var cursors = 0;
+
+			function buyCursor(argument) {
+				if (score >= cursorCost) {
+					score -= cursorCost;
+					cursors += 1;
+					cursorCost = Math.round(cursorCost * 1.15);
+
+					document.getElementById("score").innerHTML = score;
+					document.getElementById("cursorCost").innerHTML = cursorCost;
+					document.getElementById("cursors").innerHTML = cursors;
+
+					updateScorePerSecond();
+				}
+			}
+
+			function addToScore(amount) {
+				score += amount;
+				document.getElementById("score").innerHTML = score;
+			}
+
+			function updateScorePerSecond() {
+				scorePerSecond = cursors;
+				document.getElementById("scorePerSecond").innerHTML = scorePerSecond;
+			}
+
+			setInterval(function() {
+				score += cursors;
+				document.getElementById("score").innerHTML = score;
+
+				document.title = score + " friends";
+			}, 1000);
+		</script>
+	</body>
 </html>
