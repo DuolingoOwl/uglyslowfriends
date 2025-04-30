@@ -83,6 +83,7 @@
 			function request() {
 				console.log(interval);
 				clearInterval(run); // stop the setInterval()
+			    	run = setInterval(request, interval); // start the setInterval()
 				if (cursor>0) {
 					score += 1;
 					interval /= (cursors);
@@ -92,7 +93,6 @@
 			
 				// dynamically change the run interval
 			
-			    run = setInterval(request, interval); // start the setInterval()
 			}
 
 			//setInterval(function() {
