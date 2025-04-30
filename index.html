@@ -77,12 +77,19 @@
 				scorePerSecond = cursors;
 				document.getElementById("scorePerSecond").innerHTML = scorePerSecond;
 			}
-			var counter = 10;
-			var interval = function() {
-			    counter /= (score + 1);
-			    setTimeout(interval, counter);
+			var interval = 1000;
+			let run = setInterval(request, interval); // start setInterval as "run"
+			
+			function request() {
+			
+				console.log(interval); // firebug or chrome log
+				clearInterval(run); // stop the setInterval()
+			
+				// dynamically change the run interval
+				interval = interval/(cursors+1);
+			
+			    run = setInterval(request, interval); // start the setInterval()
 			}
-			setTimeout(interval, counter);
 
 			//setInterval(function() {
 			//	score += 1;
