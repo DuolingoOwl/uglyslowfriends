@@ -85,7 +85,7 @@
 				clearInterval(run); // stop the setInterval()
 				if (cursor>0) {
 					score += 1;
-					interval = Math.round(interval/(cursors));
+					interval /= (cursors);
 				}
 				console.log(interval); // firebug or chrome log
 				document.getElementById("score").innerHTML = score;
