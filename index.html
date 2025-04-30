@@ -61,13 +61,12 @@
 					score -= cursorCost;
 					cursors += 1;
 					cursorCost = Math.round(cursorCost * 1.15);
+					interval /= (cursors+1);
 
 					document.getElementById("score").innerHTML = score;
 					document.getElementById("cursorCost").innerHTML = cursorCost;
 					document.getElementById("cursors").innerHTML = cursors;
 					
-					interval /= (cursors+1);
-
 					updateScorePerSecond();
 				}
 			}
