@@ -85,13 +85,13 @@
 				clearInterval(run); // stop the setInterval()
 				if (cursor>0) {
 					score += 1;
+					interval = interval/(cursors);
 				}
 				console.log(interval); // firebug or chrome log
 				document.getElementById("score").innerHTML = score;
 				document.title = score + " friends";
 			
 				// dynamically change the run interval
-				interval = interval/(cursors+1);
 			
 			    run = setInterval(request, interval); // start the setInterval()
 			}
