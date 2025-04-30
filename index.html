@@ -20,6 +20,12 @@
 				font-size: 24px;
 				font-weight: bold;
 			}
+			.clickerContainer {
+				position: relative;
+				transition: all .2s ease-in-out;
+			}
+			.clickerContainer img:hover {transform: scale(1.10);}
+			.clickerContainer img:active {transform: scale(0.99);}
 		</style>
 	</head>
 	<body>
@@ -32,7 +38,9 @@
 					<span id = "scorePerSecond">0</span> ugly and slow friends per second
 				</div>
 				<br>
-				<img src="images/uglyslowfriend.png" onclick="addToScore(1)">
+				<div class="clickerContainer">
+					<img src="images/uglyslowfriend.png" onclick="addToScore(1)">
+				</div>
 			</center>
 		</div>
 
