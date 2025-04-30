@@ -83,7 +83,9 @@
 			function request() {
 				console.log(interval);
 				clearInterval(run); // stop the setInterval()
-				score += 1;
+				if (cursor>0) {
+					score += 1;
+				}
 				console.log(interval); // firebug or chrome log
 				document.getElementById("score").innerHTML = score;
 				document.title = score + " friends";
