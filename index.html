@@ -61,7 +61,7 @@
 					score -= cursorCost;
 					cursors += 1;
 					cursorCost = Math.round(cursorCost * 1.15);
-					interval /= (cursors+1);
+					interval /= (cursors);
 
 					document.getElementById("score").innerHTML = score;
 					document.getElementById("cursorCost").innerHTML = cursorCost;
