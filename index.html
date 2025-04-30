@@ -12,6 +12,8 @@
 				float: right;
 				width: 20%;
 			}
+			.scoreContainer {
+			}
 		</style>
 	</head>
 	<body>
@@ -19,9 +21,11 @@
 		<h1>YOU BELONG ON UGLYSLOWFRIENDS.COM</h1>
 		<div class="sectionLeft">
 			<center>
-				<p>Your ugly and slow friend's score: <span id = "score">0</span></p>
-				<p><span id = "scorePerSecond">0</span> ugly and slow friends per second</p>
-	
+				<div class="scoreContainer">
+					<p>Your ugly and slow friend's score: <span id = "score">0</span></p><br>
+					<p><span id = "scorePerSecond">0</span> ugly and slow friends per second</p>
+				</div>
+				<br>
 				<img src="images/uglyslowfriend.png" onclick="addToScore(1)">
 			</center>
 		</div>
