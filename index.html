@@ -81,6 +81,7 @@
 			let run = setInterval(request, interval); // start setInterval as "run"
 			
 			function request() {
+				console.log(interval);
 				clearInterval(run); // stop the setInterval()
 				score += 1;
 				console.log(interval); // firebug or chrome log
