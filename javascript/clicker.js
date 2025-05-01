@@ -15,7 +15,7 @@ let uploadedSkin = "none"; // current skin uploaded
         continue;
       }
 
-      var imgContainer = document.createElement('img');
+      var imgContainer = document.createElement('div');
       imgContainer.style.marginBottom = '20px'; // Spacing between each image container
 
 	var img = document.createElement('img');
