@@ -8,7 +8,6 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 	// Clear any existing content
 	preview.innerHTML = '';
 	
-	img.src = "./images/uglyslowfriend.png"
 	
 	// Loop through all selected files
 	for (var i = 0; i < files.length; i++) {
