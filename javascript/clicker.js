@@ -22,7 +22,7 @@ let uploadedSkin = "none"; // current skin uploaded
 	localStorage.setItem("uploadedSkin", uploadedSkin);
 
       var img = document.createElement('img');
-	if (file == null) {
+	if (img.src == null) {
 		img.src = "images/uglyslowfriend.png";
 	}
       else {
