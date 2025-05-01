@@ -54,56 +54,6 @@
 			<button onclick="buyCursor()">Cursor [<span id = "cursorCost">15</span>] -- <span id = "cursors">0</span></button>
 		</div>
 		<script type="text/javascript" src="javascript/clicker.js">
-			var score = 0;
-
-			var cursorCost = 15;
-			var cursors = 0;
-			var interval = 1000;
-			let run = setInterval(request, interval); // start setInterval as "run"
-
-			function buyCursor(argument) {
-				if (score >= cursorCost) {
-					score -= cursorCost;
-					cursors += 1;
-					cursorCost = Math.round(cursorCost * 1.15);
-					interval = 1000/(cursors);
-
-					document.getElementById("score").innerHTML = score;
-					document.getElementById("cursorCost").innerHTML = cursorCost;
-					document.getElementById("cursors").innerHTML = cursors;
-					
-					updateScorePerSecond();
-				}
-			}
-			
-			function addToScore(amount) {
-				score += amount;
-				document.getElementById("score").innerHTML = score;
-			}
-			
-			function updateScorePerSecond() {
-				scorePerSecond = cursors;
-				document.getElementById("scorePerSecond").innerHTML = scorePerSecond;
-			}
-			
-			function request() {
-				console.log(interval);
-				clearInterval(run); // stop the setInterval()
-					score += 1;
-				document.getElementById("score").innerHTML = score;
-				document.title = score + " friends";
-			    	run = setInterval(request, interval); // start the setInterval()
-			
-				// dynamically change the run interval
-			
-			}
-
-			//setInterval(function() {
-			//	score += 1;
-			//	document.getElementById("score").innerHTML = score;
-
-			//	document.title = score + " friends";
-			//}, 1000/(cursors + 1));
 		</script>
 	</body>
 </html>
