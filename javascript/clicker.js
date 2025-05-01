@@ -1,10 +1,10 @@
 const usf = document.getElementById('usf');
 let uploadedSkin = "none";
 
-document.getElementById('files').addEventListener('change', function() {changeImage(this)});
+document.getElementById('fileInput').addEventListener('change', function() {changeImage(this)});
 
 function changeImage(input) {
-	if (input.files && input.files[0]) {
+	if (input.fileInput && input.fileInput[0]) {
 		var reader = new FileReader();
 		reader.onload = function(event) {
 			uploadedSkin = event.target.result;
