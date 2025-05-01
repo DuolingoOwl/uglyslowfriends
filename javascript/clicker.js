@@ -6,7 +6,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 	let uploadedSkin = "none"; // current skin uploaded
 	
 	// Clear any existing content
-	preview.innerHTML = '';
+	preview.innerHTML = './images/uglyslowfriend.png';
 	
 	
 	// Loop through all selected files
