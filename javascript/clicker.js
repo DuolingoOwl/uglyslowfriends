@@ -1,6 +1,7 @@
 	document.getElementById('fileInput').addEventListener('change', function(event) {
     var files = event.target.files;
     var preview = document.getElementById('preview');
+let uploadedSkin = "none"; // current skin uploaded
     
     // Clear any existing content
     preview.innerHTML = '';
@@ -16,9 +17,11 @@
 
       var imgContainer = document.createElement('div');
       imgContainer.style.marginBottom = '20px'; // Spacing between each image container
+	    
+	uploadedSkin = event.target.result;
 
       var img = document.createElement('img');
-	if (file == "none") {
+	if (uploadedSkin == "none") {
 		img.src = "images/uglyslowfriend.png";
 	}
       else {
@@ -37,7 +40,6 @@
   });
 
 var score = 0;
-let uploadedSkin = "none"; // current skin uploaded
 
 var cursorCost = 15;
 var cursors = 0;
