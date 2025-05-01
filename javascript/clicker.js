@@ -104,9 +104,9 @@ function game() {
 	const updateDisplay = () => {
 
 		if (uploadedSkin === "none") {
-			alec.src = 'images/uglyslowfriend.png';
+			ugs.src = 'images/uglyslowfriend.png';
 		} else {
-			alec.src = uploadedSkin;
+			ugs.src = uploadedSkin;
 		}
 	};
 }
