@@ -18,8 +18,12 @@ const updateDisplay = () => {
 
 	if (uploadedSkin == "none") {
 		img.src = 'images/uglyslowfriend.png';
+		img.style.width = "256px";
+		img.style.height = "256px";
 	} else {
 		img.src = uploadedSkin;
+		img.style.width = "256px";
+		img.style.height = "256px";
 	}
 };
 var score = 0;
