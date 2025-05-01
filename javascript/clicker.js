@@ -76,7 +76,7 @@ function request() {
 
 }
 
-function game() {	
+/*function game() {	
 	const usf = document.getElementById('usf');
 	// skins
 	document.getElementById("files").addEventListener("change", function() {changeImage(this)});
@@ -109,7 +109,7 @@ function game() {
 			ugs.src = uploadedSkin;
 		}
 	};
-}
+}*/
 
 //setInterval(function() {
 //	score += 1;
