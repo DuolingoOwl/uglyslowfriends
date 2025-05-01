@@ -1,15 +1,13 @@
 document.getElementById('fileInput').addEventListener('change', function(event) {
 	var files = event.target.files;
+	preview.innerHTML = '';
 	var uploadedSkin = event.target.result;
 	var preview = document.getElementById('preview');
 	localStorage.setItem("uploadedSkin", uploadedSkin);
 	let uploadedSkin = "none"; // current skin uploaded
 	
 	// Clear any existing content
-	preview.innerHTML = '';
-		uploadedSkin = e.target.result;
-		localStorage.setItem("uploadedSkin", uploadedSkin);
-		updateDisplay();
+	updateDisplay();
 	reader.readAsDataURL(input.files[0]);
 	
 	
