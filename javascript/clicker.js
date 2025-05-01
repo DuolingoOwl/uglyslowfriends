@@ -1,4 +1,4 @@
-
+const usf = document.getElementById('usf');
 let uploadedSkin = "none";
 
 document.getElementById('fileInput').addEventListener('change', function() {changeImage(this)});
