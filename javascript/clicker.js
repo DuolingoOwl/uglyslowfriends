@@ -17,7 +17,7 @@ uploadedSkin = localStorage.getItem("uploadedSkin") || "none";
 const updateDisplay = () => {
 
 	if (uploadedSkin == "none") {
-		img.src = './images/uglyslowfriend.png';
+		img.src = 'images/uglyslowfriend.png';
 	} else {
 		img.src = uploadedSkin;
 	}
