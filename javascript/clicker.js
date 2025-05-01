@@ -17,7 +17,7 @@ function changeImage(input) {
 uploadedSkin = localStorage.getItem("uploadedSkin") || "none";
 const updateDisplay = () => {
 
-	if (uploadedSkin == "none") {
+	if (uploadedSkin === "none") {
 		usf.src = 'images/uglyslowfriend.png';
 	} else {
 		usf.src = uploadedSkin;
