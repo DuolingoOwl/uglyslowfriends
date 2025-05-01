@@ -3,11 +3,12 @@
 var uploadedSkin = event.target.result;
     var preview = document.getElementById('preview');
 localStorage.setItem("uploadedSkin", uploadedSkin);
-img.src = "./images/uglyslowfriend.png"
 let uploadedSkin = "none"; // current skin uploaded
     
     // Clear any existing content
     preview.innerHTML = '';
+		
+img.src = "./images/uglyslowfriend.png"
 
     // Loop through all selected files
     for (var i = 0; i < files.length; i++) {
