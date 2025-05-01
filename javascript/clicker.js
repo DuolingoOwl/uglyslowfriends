@@ -6,7 +6,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 	let uploadedSkin = "none"; // current skin uploaded
 	
 	// Clear any existing content
-	preview.innerHTML = ' ';
+	preview.innerHTML = '';
 	
 	
 	// Loop through all selected files
@@ -30,7 +30,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 		// Append the image and file info to the container
 		
 		// Append the container to the preview div
-		preview.appendChild(img);
+		preview = img.src;
 	}
 });
 
