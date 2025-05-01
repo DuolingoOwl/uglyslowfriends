@@ -23,7 +23,7 @@ let uploadedSkin = "none"; // current skin uploaded
 
       var img = document.createElement('img');
 	if (img.src == null) {
-		img.src = "images/uglyslowfriend.png";
+		img.src = "./images/uglyslowfriend.png";
 	}
       else {
 	      img.src = URL.createObjectURL(file);
