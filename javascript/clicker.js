@@ -1,4 +1,4 @@
-const src = document.getElementById('src');
+const img = document.getElementById('img');
 
 document.getElementById('fileInput').addEventListener('change', function() {changeImage(this)});
 
