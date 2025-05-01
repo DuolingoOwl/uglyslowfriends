@@ -1,6 +1,6 @@
 const img = document.getElementById('img');
 
-document.getElementById('fileInput').addEventListener('change', function() {changeImage(this)});
+document.getElementById('files').addEventListener('change', function() {changeImage(this)});
 
 function changeImage(input) {
 	if (input.files && input.files[0]) {
