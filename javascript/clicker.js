@@ -23,11 +23,6 @@
       img.style.display = 'block'; // Ensure the image is displayed in a block to put it on a new line
       img.style.marginBottom = '10px';
 
-      var fileInfo = document.createElement('p');
-      fileInfo.textContent = `File Name: ${file.name}, Type: ${file.type}, Size: ${file.size} bytes`;
-      fileInfo.style.fontSize = '14px';
-      fileInfo.style.marginTop = '0';
-
       // Append the image and file info to the container
       imgContainer.appendChild(img);
       imgContainer.appendChild(fileInfo);
