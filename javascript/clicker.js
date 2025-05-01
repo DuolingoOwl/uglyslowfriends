@@ -31,7 +31,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 		imgContainer.appendChild(img);
 		
 		// Append the container to the preview div
-		preview.appendChild(imgContainer);
+		preview.appendChild(img);
 	}
 });
 
