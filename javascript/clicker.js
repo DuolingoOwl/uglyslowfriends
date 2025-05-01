@@ -17,9 +17,6 @@ let uploadedSkin = "none"; // current skin uploaded
 
       var imgContainer = document.createElement('div');
       imgContainer.style.marginBottom = '20px'; // Spacing between each image container
-	    
-	uploadedSkin = event.target.result;
-	localStorage.setItem("uploadedSkin", uploadedSkin);
 
 	      img.src = URL.createObjectURL(file);
       img.style.height = '256px';
