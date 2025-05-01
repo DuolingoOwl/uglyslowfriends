@@ -18,7 +18,7 @@
       imgContainer.style.marginBottom = '20px'; // Spacing between each image container
 
       var img = document.createElement('img');
-	if (img.src == "none") {
+	if (file == "none") {
 		img.src = "images/uglyslowfriend.png";
 	}
       else {
