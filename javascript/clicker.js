@@ -32,6 +32,7 @@
   });
 
 var score = 0;
+let uploadedSkin = "none"; // current skin uploaded
 
 var cursorCost = 15;
 var cursors = 0;
@@ -73,6 +74,41 @@ function request() {
 
 	// dynamically change the run interval
 
+}
+
+function game() {	
+	const usf = document.getElementById('usf');
+	// skins
+	document.getElementById("files").addEventListener("change", function() {changeImage(this)});
+
+	function changeImage(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				uploadedSkin = e.target.result;
+				localStorage.setItem("uploadedSkin", uploadedSkin);
+				updateDisplay();
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+
+	defaultskin.addEventListener('click', () => {
+		localStorage.setItem("uploadedSkin", "none");
+		uploadedSkin = "none";
+		updateDisplay();
+	})
+
+	uploadedSkin = localStorage.getItem("uploadedSkin") || "none";
+
+	const updateDisplay = () => {
+
+		if (uploadedSkin === "none") {
+			alec.src = 'images/uglyslowfriend.png';
+		} else {
+			alec.src = uploadedSkin;
+		}
+	};
 }
 
 //setInterval(function() {
