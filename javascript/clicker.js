@@ -21,13 +21,7 @@ let uploadedSkin = "none"; // current skin uploaded
 	uploadedSkin = event.target.result;
 	localStorage.setItem("uploadedSkin", uploadedSkin);
 
-      var img = document.createElement('img');
-	if (img.src == null) {
-		img.src = "./images/uglyslowfriend.png";
-	}
-      else {
 	      img.src = URL.createObjectURL(file);
-      }
       img.style.height = '256px';
       img.style.display = 'block'; // Ensure the image is displayed in a block to put it on a new line
       img.style.marginBottom = '10px';
