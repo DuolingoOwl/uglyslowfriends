@@ -25,7 +25,6 @@
 
       // Append the image and file info to the container
       imgContainer.appendChild(img);
-      imgContainer.appendChild(fileInfo);
 
       // Append the container to the preview div
       preview.appendChild(imgContainer);
