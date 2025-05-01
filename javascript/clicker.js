@@ -30,7 +30,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 		// Append the image and file info to the container
 		
 		// Append the container to the preview div
-		preview = document.getElementById('img.src');
+		preview = document.getElementById('img');
 	}
 });
 
