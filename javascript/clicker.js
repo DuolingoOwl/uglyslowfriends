@@ -1,16 +1,16 @@
 const img = document.getElementById('img');
 
-document.getElementById('files').addEventListener('change', function() {changeImage(this)});
+document.getElementById('fileInput').addEventListener('change', function() {changeImage(this)});
 
 function changeImage(input) {
-	if (input.files && input.files[0]) {
+	if (input.fileInput && input.fileInput[0]) {
 		var reader = new FileReader();
 		reader.onload = function(event) {
 			uploadedSkin = event.target.result;
 			localStorage.setItem("uploadedSkin", uploadedSkin);
 			updateDisplay();
 		};
-		reader.readAsDataURL(input.files[0]);
+		reader.readAsDataURL(input.fileInput[0]);
 	}
 }
 uploadedSkin = localStorage.getItem("uploadedSkin") || "none";
