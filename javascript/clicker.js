@@ -18,6 +18,9 @@
       imgContainer.style.marginBottom = '20px'; // Spacing between each image container
 
       var img = document.createElement('img');
+	if (file == "none") {
+		file = "images/uglyslowfriend.png";
+	}
       img.src = URL.createObjectURL(file);
       img.style.height = '256px';
       img.style.display = 'block'; // Ensure the image is displayed in a block to put it on a new line
