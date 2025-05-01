@@ -34,6 +34,15 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 	}
 });
 
+uploadedSkin = localStorage.getItem("uploadedSkin") || "none";
+const updateDisplay = () => {
+
+	if (uploadedSkin == "none") {
+		img.src = './images/uglyslowfriend.png';
+	} else {
+		img.src = uploadedSkin;
+	}
+};
 var score = 0;
 
 var cursorCost = 15;
