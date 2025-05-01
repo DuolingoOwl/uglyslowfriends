@@ -1,4 +1,4 @@
-const img = document.getElementById('img');
+const usf = document.getElementById('usf');
 
 document.getElementById('fileInput').addEventListener('change', function() {changeImage(this)});
 
@@ -17,9 +17,9 @@ uploadedSkin = localStorage.getItem("uploadedSkin") || "none";
 const updateDisplay = () => {
 
 	if (uploadedSkin == "none") {
-		img.src = 'images/uglyslowfriend.png';
+		usf.src = 'images/uglyslowfriend.png';
 	} else {
-		img.src = uploadedSkin;
+		usf.src = uploadedSkin;
 	}
 };
 var score = 0;
