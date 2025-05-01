@@ -7,11 +7,15 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 	
 	// Clear any existing content
 	preview.innerHTML = '';
+		uploadedSkin = e.target.result;
+		localStorage.setItem("uploadedSkin", uploadedSkin);
+		updateDisplay();
+	reader.readAsDataURL(input.files[0]);
 	
 	
 	// Loop through all selected files
-	for (var i = 0; i < files.length; i++) {
-		var file = files[i];
+	/*for (var i = 0; i < files.length; i++) {
+		var file = files[0];
 		
 		// Only process image files
 		if (!file.type.match('image.*')) {
@@ -31,7 +35,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 		imgContainer.appendChild(img);
 		// Append the container to the preview div
 		preview.appendChild(imgContainer);
-	}
+	}*/
 });
 
 uploadedSkin = localStorage.getItem("uploadedSkin") || "none";
