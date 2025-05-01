@@ -1,4 +1,4 @@
-const usf = document.getElementById('usf');
+const img = document.getElementById('img');
 
 document.getElementById('fileInput').addEventListener('change', function() {changeImage(this)});
 
@@ -17,9 +17,13 @@ uploadedSkin = localStorage.getItem("uploadedSkin") || "none";
 const updateDisplay = () => {
 
 	if (uploadedSkin == "none") {
-		usf.src = 'images/uglyslowfriend.png';
+		img.src = 'images/uglyslowfriend.png';
+		img.style.width = "256px";
+		img.style.height = "256px";
 	} else {
-		usf.src = uploadedSkin;
+		img.src = uploadedSkin;
+		img.style.width = "256px";
+		img.style.height = "256px";
 	}
 };
 var score = 0;
