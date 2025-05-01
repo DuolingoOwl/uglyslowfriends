@@ -1,4 +1,3 @@
-const usf = document.getElementById('usf');
 
 let uploadedSkin = "none";
 
