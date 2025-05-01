@@ -28,9 +28,9 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 		img.style.marginBottom = '10px';
 		
 		// Append the image and file info to the container
-		
+		imgContainer.appendChild(img);
 		// Append the container to the preview div
-		preview = document.getElementById('img');
+		preview.appendChild(imgContainer);
 	}
 });
 
