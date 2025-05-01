@@ -1,41 +1,16 @@
-document.getElementById('fileInput').addEventListener('change', function(event) {
-	var files = event.target.files;
-	preview.innerHTML = '';
-	var uploadedSkin = event.target.result;
-	var preview = document.getElementById('preview');
-	localStorage.setItem("uploadedSkin", uploadedSkin);
-	let uploadedSkin = "none"; // current skin uploaded
-	
-	// Clear any existing content
-	updateDisplay();
-	reader.readAsDataURL(input.files[0]);
-	
-	
-	// Loop through all selected files
-	/*for (var i = 0; i < files.length; i++) {
-		var file = files[0];
-		
-		// Only process image files
-		if (!file.type.match('image.*')) {
-			continue;
-		}
-		
-		var imgContainer = document.createElement('div');
-		imgContainer.style.marginBottom = '20px'; // Spacing between each image container
-		
-		var img = document.createElement('img');
-		img.src = URL.createObjectURL(file);
-		img.style.height = '256px';
-		img.style.display = 'block'; // Ensure the image is displayed in a block to put it on a new line
-		img.style.marginBottom = '10px';
-		
-		// Append the image and file info to the container
-		imgContainer.appendChild(img);
-		// Append the container to the preview div
-		preview.appendChild(imgContainer);
-	}*/
-});
+document.getElementById('fileInput').addEventListener('change', function() {changeImage(this)});
 
+function changeImage(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function(event) {
+			uploadedSkin = event.target.result;
+			localStorage.setItem("uploadedSkin", uploadedSkin);
+			updateDisplay();
+		};
+		reader.readAsDataURL(input.files[0]);
+	}
+}
 uploadedSkin = localStorage.getItem("uploadedSkin") || "none";
 const updateDisplay = () => {
 
