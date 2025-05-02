@@ -1,4 +1,4 @@
-<?php
+
            session_start(); // Should always be on top
            if(!isset($_SESSION['counter'])) { // It's the first visit in this session
              $handle = fopen("counter.txt", "r"); 
@@ -20,4 +20,3 @@
              $counter = $_SESSION['counter'];
              echo" <p> Visitor Count: ". $counter . " </p> " ;
            }
-?>
