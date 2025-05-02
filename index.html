@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Image selection button remover -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script>
+			$("#fileInput").change(function() {
+				filename = this.files[0].name;
+				console.log(filename);
+			});
+		</script>
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-BRY21G04WJ"></script>
 		<script>
