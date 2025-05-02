@@ -62,7 +62,9 @@ function updateScorePerSecond() {
 function request() {
 	console.log(interval);
 	clearInterval(run); // stop the setInterval()
+	if (cursors > 0) {
 		score += 1;
+	}
 	document.getElementById("score").innerHTML = score;
 	document.title = score + " friends";
 	run = setInterval(request, interval); // start the setInterval()
