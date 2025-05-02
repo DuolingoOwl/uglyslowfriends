@@ -19,8 +19,6 @@ const updateDisplay = () => {
 
 	if (uploadedSkin === "none") {
 		usf.src = 'images/uglyslowfriend.png';
-		usf.style.width = "256px";
-		usf.style.height = "256px";
 	} else {
 		usf.src = uploadedSkin;
 		usf.style.height = "256px";
