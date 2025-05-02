@@ -21,7 +21,7 @@ const updateDisplay = () => {
 		usf.src = 'images/uglyslowfriend.png';
 	} else {
 		usf.src = uploadedSkin;
-		usf.style.height = "256px";
+		usf.style.height = '256px';
 	}
 };
 var score = 0;
