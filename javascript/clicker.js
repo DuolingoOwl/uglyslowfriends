@@ -23,7 +23,6 @@ const updateDisplay = () => {
 		usf.style.height = "256px";
 	} else {
 		usf.src = uploadedSkin;
-		usf.style.width = "256px";
 		usf.style.height = "256px";
 	}
 };
