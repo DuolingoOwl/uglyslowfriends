@@ -105,7 +105,7 @@ window.onload = function() {
 };
 
 document.addEventListener("keydown", function(event) {
-	if(event.metaKey && event.which = 83) {
+	if(event.metaKey && event.which == 83) {
 		event.preventDefault();
 		saveGame();
 	}
