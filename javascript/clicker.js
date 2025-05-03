@@ -77,6 +77,9 @@ function saveGame() {
 window.onload = function() {
 	loadGame();
 	updateScorePerSecond();
+	document.getElementById("score").innerHTML = score;
+	document.getElementById("cursorCost").innerHTML = cursorCost;
+	document.getElementById("cursors").innerHTML = cursors;
 };
 
 function request() {
