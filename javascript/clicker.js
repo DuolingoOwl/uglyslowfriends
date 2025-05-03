@@ -74,6 +74,14 @@ function saveGame() {
 	
 }
 
+function resetGame() {
+	if(confirm("are you sure that you want to reset the game?")) {
+		var gameSave = {};
+		localStorage.setItem("gameSave", JSON.stringify(gameSave));
+		location.reload();
+	}
+}
+
 window.onload = function() {
 	loadGame();
 	updateScorePerSecond();
