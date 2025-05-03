@@ -57,6 +57,17 @@ function updateScorePerSecond() {
 	document.getElementById("scorePerSecond").innerHTML = scorePerSecond;
 }
 
+function saveGame() {
+	var gameSave = {
+		score: score,
+		cursorCost: cursorCost,
+		cursors: cursors
+	};
+	localStorage.setItem("gameSave", JSON.stringify(gameSave));
+	alert(gameSave.score);
+	
+}
+
 function request() {
 	console.log(interval);
 	clearInterval(run); // stop the setInterval()
@@ -70,6 +81,10 @@ function request() {
 	// dynamically change the run interval
 
 }
+
+setInterval(function() {
+	saveGame();
+}, 30000);
 
 /*function game() {	
 	const usf = document.getElementById('usf');
