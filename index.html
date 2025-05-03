@@ -50,6 +50,27 @@
 			}
 			.clickerContainer img:hover {transform: scale(1.10);}
 			.clickerContainer img:active {transform: scale(0.99);}
+
+			.shopButton {
+				background-color: #b5b5b5;
+				transition: all .2s ease-in-out;
+				border-radius: 10px;
+				width: 100%;
+				margin: 10px 0px 10px 0px;
+			}
+			.shopButton:hover {
+				background-color: #c7c7c7;
+				transition: all .2s ease-in-out;
+			}
+
+			.shopButton #nameAndCost p {
+				margin: 0px;
+				width: 60%;
+			}
+			
+			.shopButton #nameAndCost p:first-of-type {
+				font-size: 24px;
+			}
 		</style>
 	</head>
 	<body>
@@ -74,6 +95,15 @@
 		</div>
 
 		<div class = "sectionRight">
+			<table class = "shopButton" onclick = "buyCursor()">
+				<tr>
+					<td id="nameAndCost">
+						<p>Cursor</p>
+						<p><span id = cursorCost>15</span></p>
+					</td>
+					<td id="amount"><span id="cursors">0</span></td>
+				</tr>
+			</table>
 			<button onclick="buyCursor()">Cursor [<span id = "cursorCost">15</span>] -- <span id = "cursors">0</span></button>
 		</div>
 		<script type="text/javascript" src="javascript/clicker.js">
