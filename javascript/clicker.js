@@ -57,6 +57,13 @@ function updateScorePerSecond() {
 	document.getElementById("scorePerSecond").innerHTML = scorePerSecond;
 }
 
+function loadGame() {
+	var savedGame = JSON.parse(localStorage.getItem("gameSave"));
+	if(typeof savedGame.score !== "undefined") score = savedGame.score;
+	if(typeof savedGame.cursorCost !== "undefined") cursorCost = savedGame.cursorCost;
+	if(typeof savedGame.cursors !== "undefined") cursors = savedGame.cursors;
+}
+
 function saveGame() {
 	var gameSave = {
 		score: score,
@@ -64,9 +71,13 @@ function saveGame() {
 		cursors: cursors
 	};
 	localStorage.setItem("gameSave", JSON.stringify(gameSave));
-	alert(gameSave.score);
 	
 }
+
+window.onload = function() {
+	loadGame();
+	updateScorePerSecond();
+};
 
 function request() {
 	console.log(interval);
