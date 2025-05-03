@@ -104,10 +104,6 @@ window.onload = function() {
 	document.getElementById("cursors").innerHTML = cursors;
 };
 
-setInterval(function() {
-	saveGame();
-}, 30000);
-
 document.addEventListener("keydown", function(event) {
 	if(event.metaKey && event.which = 83) {
 		event.preventDefault();
