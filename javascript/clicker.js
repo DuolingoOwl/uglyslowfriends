@@ -76,13 +76,15 @@ function loadGame() {
 	if(typeof savedGame.score !== "undefined") score = savedGame.score;
 	if(typeof savedGame.cursorCost !== "undefined") cursorCost = savedGame.cursorCost;
 	if(typeof savedGame.cursors !== "undefined") cursors = savedGame.cursors;
+	if(typeof savedGame.interval !== "undefined") interval = savedGame.interval;
 }
 
 function saveGame() {
 	var gameSave = {
 		score: score,
 		cursorCost: cursorCost,
-		cursors: cursors
+		cursors: cursors,
+		interval:interval
 	};
 	localStorage.setItem("gameSave", JSON.stringify(gameSave));
 	
@@ -102,6 +104,7 @@ window.onload = function() {
 	document.getElementById("score").innerHTML = score;
 	document.getElementById("cursorCost").innerHTML = cursorCost;
 	document.getElementById("cursors").innerHTML = cursors;
+	document.getElementById("interval").innerHTML = interval;
 };
 
 document.addEventListener("keydown", function(event) {
