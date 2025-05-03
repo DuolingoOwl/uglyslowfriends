@@ -101,7 +101,7 @@ setInterval(function() {
 }, 30000);
 
 document.addEventListener("keydown", function(event) {
-	if(event.cmdKey && event.which = 83) {
+	if(event.metaKey && event.which = 83) {
 		event.preventDefault();
 		saveGame();
 	}
