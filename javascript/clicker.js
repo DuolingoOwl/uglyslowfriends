@@ -100,6 +100,13 @@ setInterval(function() {
 	saveGame();
 }, 30000);
 
+document.addEventListener("keydown", function(event) {
+	if(event.cmdKey && event.which = 83) {
+		event.preventDefault();
+		saveGame();
+	}
+}, false);
+
 /*function game() {	
 	const usf = document.getElementById('usf');
 	// skins
