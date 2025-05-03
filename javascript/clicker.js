@@ -57,6 +57,20 @@ function updateScorePerSecond() {
 	document.getElementById("scorePerSecond").innerHTML = scorePerSecond;
 }
 
+function request() {
+	console.log(interval);
+	clearInterval(run); // stop the setInterval()
+	if (cursors > 0) {
+		score += 1;
+	}
+	document.getElementById("score").innerHTML = score;
+	document.title = score + " friends";
+	run = setInterval(request, interval); // start the setInterval()
+
+	// dynamically change the run interval
+
+}
+
 function loadGame() {
 	var savedGame = JSON.parse(localStorage.getItem("gameSave"));
 	if(typeof savedGame.score !== "undefined") score = savedGame.score;
@@ -89,20 +103,6 @@ window.onload = function() {
 	document.getElementById("cursorCost").innerHTML = cursorCost;
 	document.getElementById("cursors").innerHTML = cursors;
 };
-
-function request() {
-	console.log(interval);
-	clearInterval(run); // stop the setInterval()
-	if (cursors > 0) {
-		score += 1;
-	}
-	document.getElementById("score").innerHTML = score;
-	document.title = score + " friends";
-	run = setInterval(request, interval); // start the setInterval()
-
-	// dynamically change the run interval
-
-}
 
 setInterval(function() {
 	saveGame();
