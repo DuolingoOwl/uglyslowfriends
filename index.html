@@ -2,13 +2,6 @@
 <html lang="en">
 	<head>
 		<!-- Image selection button remover -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script>
-			$("#fileInput").change(function() {
-				filename = this.files[0].name;
-				console.log(filename);
-			});
-		</script>
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-04557T3R4R"></script>
 		<script>
@@ -38,7 +31,7 @@
 			}
 			
 			.scoreContainer {
-				background-color: rgb(238,238,238,0.6);
+				background-color: rgba(238,238,238,0.6);
 				width: 50%;
 				padding: 10px;
 				border-radius: 10px;
@@ -126,7 +119,6 @@
 			</table>
 			<!--<button onclick="buyCursor()">Cursor [<span id = "cursorCost">15</span>] -- <span id = "cursors">0</span></button>-->
 		</div>
-		<script type="text/javascript" src="javascript/clicker.js">
-		</script>
+		<script type="text/javascript" src="javascript/clicker.js"></script>
 	</body>
 </html>
