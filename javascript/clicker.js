@@ -95,6 +95,74 @@ var display = {
 	}
 };
 
+function saveGame() {
+	var gameSave = {
+		score: game.score,
+		totalScore: game.totalScore,
+		totalClicks: game.totalClicks,
+		clickValue: game.clickValue,
+		version: game.version,
+		buildingCount: building.count,
+		buildingIncome: building.income,
+		buildingCost: building.cost,
+		interval: time.interval
+	};
+	localStorage.setItem("gameSave", JSON.stringify(gameSave));
+	
+}
+
+function loadGame() {
+	var savedGame = JSON.parse(localStorage.getItem("gameSave"));
+	if (localStorage.getItem("gameSave") !== null) {
+		if(typeof savedGame.score !== "undefined") game.score = savedGame.score;
+		if(typeof savedGame.totalScore !== "undefined") game.totalScore = savedGame.totalScore;
+		if(typeof savedGame.totalClicks !== "undefined") game.totalClicks = savedGame.totalClicks;
+		if(typeof savedGame.clickValue !== "undefined") game.clickValue = savedGame.clickValue;
+		if(typeof savedGame.interval !== "undefined") game.interval = savedGame.interval;
+		if(typeof savedGame.cursorCost !== "undefined") cursorCost = savedGame.cursorCost;
+		if(typeof savedGame.cursors !== "undefined") cursors = savedGame.cursors;
+		if(typeof savedGame.interval !== "undefined") interval = savedGame.interval;
+		if(typeof savedGame.buildingCount !== "undefined") {
+			for (i = 0; i < savedGame.buildingCount.length; i++) {
+				building.count = savedGame.buildingCount[i];
+			}
+		}
+		if(typeof savedGame.buildingIncome !== "undefined") {
+			for (i = 0; i < savedGame.buildingIncome.length; i++) {
+				building.income = savedGame.buildingIncome[i];
+			}
+		}
+		if(typeof savedGame.buildingCost !== "undefined") {
+			for (i = 0; i < savedGame.buildingCost.length; i++) {
+				building.cost = savedGame.buildingCost[i];
+			}
+		}
+	}
+}
+
+
+function resetGame() {
+	if(confirm("are you sure that you want to reset the game?")) {
+		var gameSave = {};
+		localStorage.setItem("gameSave", JSON.stringify(gameSave));
+		location.reload();
+	}
+}
+
+window.onload = function() {
+	loadGame();
+	display.updateScore();
+	display.uploadedShop();
+}; 
+
+document.addEventListener("keydown", function(event) {
+	if(event.metaKey && event.which == 83) {
+		event.preventDefault();
+		saveGame();
+	}
+}, false);
+
+/*
 function loadGame() {
 	var savedGame = JSON.parse(localStorage.getItem("gameSave"));
 	if(typeof savedGame.score !== "undefined") score = savedGame.score;
@@ -114,13 +182,6 @@ function saveGame() {
 	
 }
 
-function resetGame() {
-	if(confirm("are you sure that you want to reset the game?")) {
-		var gameSave = {};
-		localStorage.setItem("gameSave", JSON.stringify(gameSave));
-		location.reload();
-	}
-}
 
 window.onload = function() {
 	loadGame();
@@ -138,6 +199,7 @@ document.addEventListener("keydown", function(event) {
 		saveGame();
 	}
 }, false);
+*/
 
 /*function game() {	
 	const usf = document.getElementById('usf');
