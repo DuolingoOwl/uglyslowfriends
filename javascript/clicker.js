@@ -30,7 +30,7 @@ var game = {
 	score: 0,
 	totalScore: 0,
 	totalClicks: 0,
-	clickValue: 0,
+	clickValue: 1,
 	version: 0.0,
 
 	addToScore: function(amount) {
@@ -117,9 +117,6 @@ function loadGame() {
 		if(typeof savedGame.totalClicks !== "undefined") game.totalClicks = savedGame.totalClicks;
 		if(typeof savedGame.clickValue !== "undefined") game.clickValue = savedGame.clickValue;
 		if(typeof savedGame.interval !== "undefined") game.interval = savedGame.interval;
-		if(typeof savedGame.cursorCost !== "undefined") cursorCost = savedGame.cursorCost;
-		if(typeof savedGame.cursors !== "undefined") cursors = savedGame.cursors;
-		if(typeof savedGame.interval !== "undefined") interval = savedGame.interval;
 		if(typeof savedGame.buildingCount !== "undefined") {
 			for (i = 0; i < savedGame.buildingCount.length; i++) {
 				building.count = savedGame.buildingCount[i];
