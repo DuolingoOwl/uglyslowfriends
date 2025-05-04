@@ -26,14 +26,14 @@
 		<div class="sectionLeft">
 			<center>
 				<div class="scoreContainer">
-					Your ugly slow friend's score: <span id = "score">0</span><br>
+					Your ugly slow friend's score: <span id = "game.score">0</span><br>
 					<span id = "scorePerSecond">0</span> ugly slow friends per second
 				</div>
 				<br>
 				<div class="clickerContainer unselectable">
 					<!-- <img src="images/uglyslowfriend.png" height = "256px" onclick="addToScore(1)"> -->
 					<!-- onclick="addToScore(1)" --> 
-					<img src="images/uglyslowfriend.png" height = "256px" width = "256px" id="usf" alt="usf" onclick="addToScore(1)">
+					<img src="images/uglyslowfriend.png" height = "256px" width = "256px" id="usf" alt="usf" onclick="game.addToScore(game.clickValue)">
 				</div>
 				<label for="fileInput">Upload a photo of your ugly slow friend:</label>
 				<input type="file" id="fileInput" accept="image/*">
