@@ -94,7 +94,7 @@
 				<div class="clickerContainer unselectable">
 					<!-- <img src="images/uglyslowfriend.png" height = "256px" onclick="addToScore(1)"> -->
 					<!-- onclick="addToScore(1)" --> 
-					<img src="images/uglyslowfriend.png" height = "256px" width = "256px" id="usf" alt="usf" onclick="addToScore(1)">
+					<img src="images/uglyslowfriend.png" height = "256px" width = "256px" id="usf" alt="usf" onclick="game.addToScore(game.clickValue)">
 				</div>
 				<label for="fileInput">Upload a photo of your ugly slow friend:</label>
 				<input type="file" id="fileInput" accept="image/*">
@@ -120,5 +120,44 @@
 			<!--<button onclick="buyCursor()">Cursor [<span id = "cursorCost">15</span>] -- <span id = "cursors">0</span></button>-->
 		</div>
 		<script type="text/javascript" src="javascript/clicker.js"></script>
+		<script>
+			var game = {
+				score: 0,
+				totalScore: 0,
+				totalClicks: 0,
+				clickValue: 0,
+				version: 0.0,
+
+				addToScore: function(amount) {
+					this.score += amount;
+					this.totalScore += amount;
+					display.updateScore();
+				}
+			};
+			var time = {
+				interval: 1000,
+				run: setInterval(request, interval),
+				request: function() {
+					console.log(this.interval);
+					clearInterval(this.run); // stop the setInterval()
+					if (cursors > 0) {
+						game.score += 1;
+					}
+					document.getElementById("score").innerHTML = score;
+					document.title = gamescore + " friends";
+					this.run = setInterval(this.request, this.interval); // start the setInterval()
+				
+					// dynamically change the run interval
+				}
+			};
+
+			var display = {
+				updateScore: function() {
+					document.getElementById("score").innerHTML = game.score;
+					document.title = game.score + " friends";
+				
+				}
+			};
+		</script>
 	</body>
 </html>
