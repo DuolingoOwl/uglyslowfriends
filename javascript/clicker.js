@@ -105,6 +105,7 @@ window.onload = function() {
 	document.getElementById("cursorCost").innerHTML = cursorCost;
 	document.getElementById("cursors").innerHTML = cursors;
 	document.getElementById("interval").innerHTML = interval;
+	document.getElementById("run").innerHTML = run;
 };
 
 document.addEventListener("keydown", function(event) {
