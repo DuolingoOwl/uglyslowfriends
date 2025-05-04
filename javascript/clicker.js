@@ -76,6 +76,21 @@ var building = {
 			time.interval = 1000/(this.count[index]);
 			
 			display.updateScore();
+			display.updateShop();
+		}
+	}
+};
+
+var display = {
+	updateScore: function() {
+		document.getElementById("score").innerHTML = game.score;
+		document.title = game.score + " friends";
+	},
+
+	updateShop: function() {
+		document.getElementById("shopContainer").innerHTML = "";
+		for (i = 0; i < building.name.length; i++) {
+			document.getElementById("shopContainer").innerHTML += '<table class = "shopButton unselectable" onclick = "building.purchase('+i+')"><tr><td id="nameAndCost"><p>'+building.name[i]+'</p><p><span>'+building.cost[i]+'</span></p></td><td id="amount"><span id="cursors">'+building.count[i]+'</span></td></tr></table>';
 		}
 	}
 };
