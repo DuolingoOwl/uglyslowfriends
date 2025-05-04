@@ -25,51 +25,60 @@ const updateDisplay = () => {
 		style.height = '256px';
 	}
 };
-var score = 0;
 
-var cursorCost = 15;
-var cursors = 0;
-var interval = 1000;
-let run = setInterval(request, interval); // start setInterval as "run"
+var game = {
+	score: 0,
+	totalScore: 0,
+	totalClicks: 0,
+	clickValue: 0,
+	version: 0.0,
 
-function buyCursor(argument) {
-	if (score >= cursorCost) {
-		score -= cursorCost;
-		cursors += 1;
-		cursorCost = Math.round(cursorCost * 1.15);
-		interval = 1000/(cursors);
+	addToScore: function(amount) {
+		this.score += amount;
+		this.totalScore += amount;
+		display.updateScore();
+	},
 
-		document.getElementById("score").innerHTML = score;
-		document.getElementById("cursorCost").innerHTML = cursorCost;
-		document.getElementById("cursors").innerHTML = cursors;
-		
-		updateScorePerSecond();
+	getScorePerSecond: function() {
+		var scorePerSecond = 0;
+		for (var i = 0; i < building.name.length; i++) {
+			scorePerSecond += building.income[i] * building.count[i];
+		}
+		return scorePerSecond;
 	}
-}
-
-function addToScore(amount) {
-	score += amount;
-	document.getElementById("score").innerHTML = score;
-}
-
-function updateScorePerSecond() {
-	scorePerSecond = cursors;
-	document.getElementById("scorePerSecond").innerHTML = scorePerSecond;
-}
-
-function request() {
-	console.log(interval);
-	clearInterval(run); // stop the setInterval()
-	if (cursors > 0) {
-		score += 1;
+};
+var time = {
+	interval: 1000,
+	run: setInterval(this.request, this.interval),
+	request: function() {
+		console.log(this.interval);
+		clearInterval(this.run); // stop the setInterval()
+		game.score += 1;
+		document.getElementById("score").innerHTML = game.score;
+		document.title = game.score + " friends";
+		this.run = setInterval(this.request, this.interval); // start the setInterval()
+	
+		// dynamically change the run interval
 	}
-	document.getElementById("score").innerHTML = score;
-	document.title = score + " friends";
-	run = setInterval(request, interval); // start the setInterval()
+};
 
-	// dynamically change the run interval
-
-}
+var building = {
+	name: ["cursor"],
+	image: [],
+	count: [0],
+	income: [1],
+	cost: [15],
+	purchase: function(index) {
+		if (game.score >= this.cost[index]) {
+			game.score -= this.cost[index];
+			this.count[index]++;
+			this.cost[index] = Math.round(this.cost[index] * 1.15);
+			time.interval = 1000/(this.count[index]);
+			
+			display.updateScore();
+		}
+	}
+};
 
 function loadGame() {
 	var savedGame = JSON.parse(localStorage.getItem("gameSave"));
