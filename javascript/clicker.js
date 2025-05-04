@@ -51,7 +51,6 @@ var time = {
 	interval: 1000,
 	run: setInterval(this.request, this.interval),
 	request: function() {
-		console.log(this.interval);
 		clearInterval(this.run); // stop the setInterval()
 		game.score += 1;
 		document.getElementById("score").innerHTML = game.score;
@@ -74,7 +73,6 @@ var building = {
 			this.count[index]++;
 			this.cost[index] = Math.round(this.cost[index] * 1.15);
 			time.interval = 1000/(this.count[index]);
-			
 			display.updateScore();
 			display.updateShop();
 		}
@@ -90,7 +88,7 @@ var display = {
 	updateShop: function() {
 		document.getElementById("shopContainer").innerHTML = "";
 		for (i = 0; i < building.name.length; i++) {
-			document.getElementById("shopContainer").innerHTML += '<table class = "shopButton unselectable" onclick = "building.purchase('+i+')"><tr><td id="nameAndCost"><p>'+building.name[i]+'</p><p><span>'+building.cost[i]+'</span></p></td><td id="amount"><span id="cursors">'+building.count[i]+'</span></td></tr></table>';
+			document.getElementById("shopContainer").innerHTML += '<table class="shopButton unselectable" onclick = "building.purchase('+i+')"><tr><td id="nameAndCost"><p>'+building.name[i]+'</p><p><span>'+building.cost[i]+'</span></p></td><td id="amount"><span id="cursors">'+building.count[i]+'</span></td></tr></table>';
 		}
 	}
 };
