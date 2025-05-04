@@ -150,7 +150,7 @@ function resetGame() {
 window.onload = function() {
 	loadGame();
 	display.updateScore();
-	display.uploadedShop();
+	display.updateShop();
 }; 
 
 document.addEventListener("keydown", function(event) {
