@@ -49,16 +49,7 @@ var game = {
 };
 var time = {
 	interval: 1000,
-	run: setInterval(this.request, this.interval),
-	request: function() {
-		clearInterval(this.run); // stop the setInterval()
-		game.score += 1;
-		document.getElementById("score").innerHTML = game.score;
-		document.title = game.score + " friends";
-		this.run = setInterval(this.request, this.interval); // start the setInterval()
-	
-		// dynamically change the run interval
-	}
+	run: setInterval(request, this.interval),
 };
 
 var building = {
@@ -134,6 +125,17 @@ function loadGame() {
 			}
 		}
 	}
+}
+
+
+function request() {
+	clearInterval(time.run); // stop the setInterval()
+	game.score += 1;
+	document.getElementById("score").innerHTML = game.score;
+	document.title = game.score + " friends";
+	time.run = setInterval(time.request, time.interval); // start the setInterval()
+
+	// dynamically change the run interval
 }
 
 
