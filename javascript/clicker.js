@@ -63,8 +63,6 @@ var building = {
 			this.cost[index] = Math.round(this.cost[index] * 1.15);
 			if (this.count[index] > 0) {
 				interval = 1000/(this.count[index]);
-			} else {
-				interval = 0;
 			}
 			
 			display.updateScore();
@@ -135,8 +133,10 @@ var interval = 1000;
 let run = setInterval(request, interval);
 function request() {
 	clearInterval(run); // stop the setInterval()
-	game.score += 1;
-	game.totalScore += 1;
+	if (building.count[0] > 0) {
+		game.score += 1;
+		game.totalScore += 1;
+	}
 	document.getElementById("score").innerHTML = game.score;
 	//document.getElementById("totalScore").innerHTML = game.totalScore;
 	document.title = game.score + " friends";
