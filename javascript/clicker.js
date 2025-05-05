@@ -120,17 +120,17 @@ function loadGame() {
 		if(typeof savedGame.interval !== "undefined") time.interval = savedGame.interval;
 		if(typeof savedGame.buildingCount !== "undefined") {
 			for (i = 0; i < savedGame.buildingCount.length; i++) {
-				building.count = savedGame.buildingCount[i];
+				building.count[i] = savedGame.buildingCount[i];
 			}
 		}
 		if(typeof savedGame.buildingIncome !== "undefined") {
 			for (i = 0; i < savedGame.buildingIncome.length; i++) {
-				building.income = savedGame.buildingIncome[i];
+				building.income[i] = savedGame.buildingIncome[i];
 			}
 		}
 		if(typeof savedGame.buildingCost !== "undefined") {
 			for (i = 0; i < savedGame.buildingCost.length; i++) {
-				building.cost = savedGame.buildingCost[i];
+				building.cost[i] = savedGame.buildingCost[i];
 			}
 		}
 	}
