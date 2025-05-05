@@ -138,7 +138,7 @@ function request() {
 	game.score += 1;
 	game.totalScore += 1;
 	document.getElementById("score").innerHTML = game.score;
-	document.getElementById("totalScore").innerHTML = game.totalScore;
+	//document.getElementById("totalScore").innerHTML = game.totalScore;
 	document.title = game.score + " friends";
 	run = setInterval(request, interval); // start the setInterval()
 
