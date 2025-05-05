@@ -63,7 +63,9 @@ var building = {
 			game.score -= this.cost[index];
 			this.count[index]++;
 			this.cost[index] = Math.round(this.cost[index] * 1.15);
-			time.interval = 1000/(this.count[index]);
+			if (this.count[0]>0) {
+				time.interval = 1000/(this.count[0]);
+			}
 			
 			display.updateScore();
 			display.updateShop();
@@ -135,7 +137,7 @@ function request() {
 	document.getElementById("score").innerHTML = game.score;
 	document.getElementById("totalScore").innerHTML = game.totalScore;
 	document.title = game.score + " friends";
-	time.run = setInterval(time.request, time.interval); // start the setInterval()
+	time.run = setInterval(request, time.interval); // start the setInterval()
 
 	// dynamically change the run interval
 }
