@@ -48,8 +48,6 @@ var game = {
 	}
 };
 var time = {
-	interval: 1000,
-	run: setInterval(request, this.interval),
 };
 
 var building = {
@@ -63,8 +61,10 @@ var building = {
 			game.score -= this.cost[index];
 			this.count[index]++;
 			this.cost[index] = Math.round(this.cost[index] * 1.15);
-			if (this.count[0]>0) {
-				time.interval = 1000/(this.count[0]);
+			if (this.count[index] > 0) {
+				interval = 1000/(this.count[index]);
+			} else {
+				interval = 0;
 			}
 			
 			display.updateScore();
@@ -76,6 +76,7 @@ var building = {
 var display = {
 	updateScore: function() {
 		document.getElementById("score").innerHTML = game.score;
+		document.getElementById("scorePerSecond").innerHTML = game.getScorePerSecond();
 		document.title = game.score + " friends";
 	},
 
@@ -97,7 +98,7 @@ function saveGame() {
 		buildingCount: building.count,
 		buildingIncome: building.income,
 		buildingCost: building.cost,
-		interval: time.interval
+		interval: interval
 	};
 	localStorage.setItem("gameSave", JSON.stringify(gameSave));
 	
@@ -110,7 +111,7 @@ function loadGame() {
 		if(typeof savedGame.totalScore !== "undefined") game.totalScore = savedGame.totalScore;
 		if(typeof savedGame.totalClicks !== "undefined") game.totalClicks = savedGame.totalClicks;
 		if(typeof savedGame.clickValue !== "undefined") game.clickValue = savedGame.clickValue;
-		if(typeof savedGame.interval !== "undefined") time.interval = savedGame.interval;
+		if(typeof savedGame.interval !== "undefined") interval = savedGame.interval;
 		if(typeof savedGame.buildingCount !== "undefined") {
 			for (i = 0; i < savedGame.buildingCount.length; i++) {
 				building.count[i] = savedGame.buildingCount[i];
@@ -130,14 +131,16 @@ function loadGame() {
 }
 
 
+var interval = 1000;
+let run = setInterval(request, interval);
 function request() {
-	clearInterval(time.run); // stop the setInterval()
+	clearInterval(run); // stop the setInterval()
 	game.score += 1;
 	game.totalScore += 1;
 	document.getElementById("score").innerHTML = game.score;
 	document.getElementById("totalScore").innerHTML = game.totalScore;
 	document.title = game.score + " friends";
-	time.run = setInterval(request, time.interval); // start the setInterval()
+	run = setInterval(request, interval); // start the setInterval()
 
 	// dynamically change the run interval
 }
@@ -155,7 +158,7 @@ window.onload = function() {
 	loadGame();
 	display.updateScore();
 	display.updateShop();
-	document.getElementById("run").innerHTML = time.run;
+	document.getElementById("run").innerHTML = run;
 }; 
 
 document.addEventListener("keydown", function(event) {
