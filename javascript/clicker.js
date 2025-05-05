@@ -131,7 +131,9 @@ function loadGame() {
 function request() {
 	clearInterval(time.run); // stop the setInterval()
 	game.score += 1;
+	game.totalScore += 1;
 	document.getElementById("score").innerHTML = game.score;
+	document.getElementById("totalScore").innerHTML = game.totalScore;
 	document.title = game.score + " friends";
 	time.run = setInterval(time.request, time.interval); // start the setInterval()
 
