@@ -51,6 +51,7 @@ var time = {
 	interval: 1000,
 	run: setInterval(this.request, this.interval),
 	request: function() {
+		console.log(this.interval);
 		clearInterval(this.run); // stop the setInterval()
 		game.score += 1;
 		document.getElementById("score").innerHTML = game.score;
@@ -73,6 +74,7 @@ var building = {
 			this.count[index]++;
 			this.cost[index] = Math.round(this.cost[index] * 1.15);
 			time.interval = 1000/(this.count[index]);
+			
 			display.updateScore();
 			display.updateShop();
 		}
@@ -88,7 +90,7 @@ var display = {
 	updateShop: function() {
 		document.getElementById("shopContainer").innerHTML = "";
 		for (i = 0; i < building.name.length; i++) {
-			document.getElementById("shopContainer").innerHTML += '<table class="shopButton unselectable" onclick = "building.purchase('+i+')"><tr><td id="nameAndCost"><p>'+building.name[i]+'</p><p><span>'+building.cost[i]+'</span></p></td><td id="amount"><span id="cursors">'+building.count[i]+'</span></td></tr></table>';
+			document.getElementById("shopContainer").innerHTML += '<table class = "shopButton unselectable" onclick = "building.purchase('+i+')"><tr><td id="nameAndCost"><p>'+building.name[i]+'</p><p><span>'+building.cost[i]+'</span></p></td><td id="amount"><span id="cursors">'+building.count[i]+'</span></td></tr></table>';
 		}
 	}
 };
@@ -148,6 +150,7 @@ window.onload = function() {
 	loadGame();
 	display.updateScore();
 	display.updateShop();
+	document.getElementById("run").innerHTML = time.run;
 }; 
 
 document.addEventListener("keydown", function(event) {
@@ -156,3 +159,84 @@ document.addEventListener("keydown", function(event) {
 		saveGame();
 	}
 }, false);
+
+/*
+function loadGame() {
+	var savedGame = JSON.parse(localStorage.getItem("gameSave"));
+	if(typeof savedGame.score !== "undefined") score = savedGame.score;
+	if(typeof savedGame.cursorCost !== "undefined") cursorCost = savedGame.cursorCost;
+	if(typeof savedGame.cursors !== "undefined") cursors = savedGame.cursors;
+	if(typeof savedGame.interval !== "undefined") interval = savedGame.interval;
+}
+
+function saveGame() {
+	var gameSave = {
+		score: score,
+		cursorCost: cursorCost,
+		cursors: cursors,
+		interval:interval
+	};
+	localStorage.setItem("gameSave", JSON.stringify(gameSave));
+	
+}
+
+
+window.onload = function() {
+	loadGame();
+	updateScorePerSecond();
+	document.getElementById("score").innerHTML = score;
+	document.getElementById("cursorCost").innerHTML = cursorCost;
+	document.getElementById("cursors").innerHTML = cursors;
+	document.getElementById("interval").innerHTML = interval;
+	document.getElementById("run").innerHTML = run;
+};
+
+document.addEventListener("keydown", function(event) {
+	if(event.metaKey && event.which == 83) {
+		event.preventDefault();
+		saveGame();
+	}
+}, false);
+*/
+
+/*function game() {	
+	const usf = document.getElementById('usf');
+	// skins
+	document.getElementById("files").addEventListener("change", function() {changeImage(this)});
+
+	function changeImage(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				uploadedSkin = e.target.result;
+				localStorage.setItem("uploadedSkin", uploadedSkin);
+				updateDisplay();
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+
+	defaultskin.addEventListener('click', () => {
+		localStorage.setItem("uploadedSkin", "none");
+		uploadedSkin = "none";
+		updateDisplay();
+	})
+
+	uploadedSkin = localStorage.getItem("uploadedSkin") || "none";
+
+	const updateDisplay = () => {
+
+		if (uploadedSkin === "none") {
+			ugs.src = 'images/uglyslowfriend.png';
+		} else {
+			ugs.src = uploadedSkin;
+		}
+	};
+}*/
+
+//setInterval(function() {
+//	score += 1;
+//	document.getElementById("score").innerHTML = score;
+
+//	document.title = score + " friends";
+//}, 1000/(cursors + 1));
