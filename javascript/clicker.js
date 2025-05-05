@@ -51,7 +51,6 @@ var time = {
 	interval: 1000,
 	run: setInterval(this.request, this.interval),
 	request: function() {
-		console.log(this.interval);
 		clearInterval(this.run); // stop the setInterval()
 		game.score += 1;
 		document.getElementById("score").innerHTML = game.score;
@@ -118,7 +117,7 @@ function loadGame() {
 		if(typeof savedGame.totalScore !== "undefined") game.totalScore = savedGame.totalScore;
 		if(typeof savedGame.totalClicks !== "undefined") game.totalClicks = savedGame.totalClicks;
 		if(typeof savedGame.clickValue !== "undefined") game.clickValue = savedGame.clickValue;
-		if(typeof savedGame.interval !== "undefined") game.interval = savedGame.interval;
+		if(typeof savedGame.interval !== "undefined") time.interval = savedGame.interval;
 		if(typeof savedGame.buildingCount !== "undefined") {
 			for (i = 0; i < savedGame.buildingCount.length; i++) {
 				building.count = savedGame.buildingCount[i];
